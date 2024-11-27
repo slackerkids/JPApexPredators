@@ -11,22 +11,35 @@ struct PredatorDetail: View {
     let predator: ApexPredator
     
     var body: some View {
-        ScrollView {
-            ZStack {
-                // Background Image
+        GeometryReader{ geo in
+            ScrollView {
+                ZStack(alignment: .bottomTrailing) {
+                    // Background Image
+                    Image(predator.type.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                    
+                    // Dino Image
+                    Image(predator.image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geo.size.width/1.5, height: geo.size.height/3)
+                        .scaleEffect(x: -1)
+                        .shadow(color: .black,radius: 7)
+                        .offset(y:20)
+                }
                 
-                // Dino Image
+                // Name
+                
+                // Current Location
+                
+                // Appears In
+                
+                // Movie Moments
+                
+                // Link to Webpage
             }
-            
-            // Name
-            
-            // Current Location
-            
-            // Appears In
-            
-            // Movie Moments
-            
-            // Link to Webpage
+            .ignoresSafeArea()
         }
     }
 }
